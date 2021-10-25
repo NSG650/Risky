@@ -7,7 +7,7 @@ risky.elf: boot/boot.S kernel/kernel.c $(wildcard kernel/*/*.c)
 	${CC} ${CFLAGS} -o $@ $^
 
 run: kernel.elf
-	qemu-system-riscv64 -machine virt -monitor stdio -bios $<
+	qemu-system-riscv64 -machine virt -monitor stdio -bios $< -sdl
 
 clean:
 	rm risky.elf	
