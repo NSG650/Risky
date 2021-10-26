@@ -3,7 +3,7 @@ CFLAGS=-nostdlib -fno-builtin -mcmodel=medany -march=rv64ima -mabi=lp64 -T linke
 
 all: risky.elf
 
-risky.elf: boot/boot.S kernel/kernel.c $(wildcard kernel/*/*.c)
+risky.elf: boot/boot.S kernel/kernel.c $(wildcard kernel/*/*.c) $(wildcard kernel/*/*.s)
 	${CC} ${CFLAGS} -o $@ $^
 
 run: kernel.elf
